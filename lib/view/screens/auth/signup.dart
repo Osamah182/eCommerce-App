@@ -62,7 +62,7 @@ class SignUp extends StatelessWidget {
                   myController: controller.phoneNumber,
                   hintText1: "Enter Your Phone Number",
                   label1: "Phone Number",
-                  iconData: Icons.phone_outlined),
+                  iconData: Icons.phone_android_outlined),
               CustomTextFormAuth(
                   myController: controller.password,
                   hintText1: "Enter Your Passord",
