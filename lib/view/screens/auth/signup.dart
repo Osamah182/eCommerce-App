@@ -1,4 +1,3 @@
-import 'package:e_commerce_cource/controller/auth/loging_controller.dart';
 import 'package:e_commerce_cource/core/constants/colors.dart';
 import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
@@ -8,17 +7,17 @@ import 'package:e_commerce_cource/view/widgets/auth/textsignup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:path/path.dart';
 
+import '../../../controller/auth/signup_controller.dart';
 import '../../widgets/auth/customtextformauth.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class SignUp extends StatelessWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
   build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    SignupControllerImp controller = Get.put(SignupControllerImp());
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
@@ -29,7 +28,7 @@ class Login extends StatelessWidget {
           // height: 150,
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: const Text(
-            "Log in",
+            "Sign Up",
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 20, color: Colors.grey),
           ),
@@ -40,24 +39,33 @@ class Login extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
           child: ListView(
             children: [
-              const LogoAuth(),
+              // const LogoAuth(),
               const SizedBox(height: 20),
-              const CustomTextTitleAuth(textTitle: "Welcome Back"),
+              const CustomTextTitleAuth(textTitle: "Welcome"),
               const SizedBox(height: 10),
               const CustomTextBodyAuth(
                   text:
-                      "Sign in with your email and password or continue with social media"),
+                      "Sign up with your email and password or continue with social media"),
               const SizedBox(height: 35),
               CustomTextFormAuth(
-                myController: controller.email,
-                hintText1: "Enter Your Email",
-                label1: "Email",
-                iconData: Icons.email_outlined,
-              ),
+                  myController: controller.username,
+                  hintText1: "Enter your Username",
+                  label1: "Username",
+                  iconData: Icons.person_outline),
               // const SizedBox(height: 25),
               CustomTextFormAuth(
+                  myController: controller.email,
+                  hintText1: "Enter Your Email",
+                  label1: "Email",
+                  iconData: Icons.email_outlined),
+              CustomTextFormAuth(
+                  myController: controller.phoneNumber,
+                  hintText1: "Enter Your Phone Number",
+                  label1: "Phone Number",
+                  iconData: Icons.phone_outlined),
+              CustomTextFormAuth(
                   myController: controller.password,
-                  hintText1: "Enter Your Password",
+                  hintText1: "Enter Your Passord",
                   label1: "Password",
                   iconData: Icons.lock_outlined),
               const Text(
@@ -66,13 +74,19 @@ class Login extends StatelessWidget {
                 style: TextStyle(color: Colors.grey),
               ),
               CustomButtonAuth(text: "Sign in", onPressed: () {}),
-              const SizedBox(height: 30),
-              CustomTextSignUpOrSignIn(
-                text1: "Don't have an accout ?",
-                text2: "SignUp",
-                onTap: () {
-                  controller.goToSignUp();
-                },
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(width: 7),
+                  CustomTextSignUpOrSignIn(
+                    text1: "Already have accout ?",
+                    text2: "Sign In",
+                    onTap: () {
+                      controller.signIn();
+                    },
+                  )
+                ],
               )
             ],
           )),
