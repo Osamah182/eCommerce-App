@@ -10,7 +10,7 @@ class LogoAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       ImageAsset.logo,
-      height: 140,
+      height: 100,
     );
   }
 }

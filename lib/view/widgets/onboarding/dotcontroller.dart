@@ -15,7 +15,7 @@ class DotController extends StatelessWidget {
               ...List.generate(
                   onBoardingList.length,
                   (index) => AnimatedContainer(
-                        duration: const Duration(milliseconds: 900),
+                        duration: const Duration(milliseconds: 300),
                         margin: const EdgeInsets.only(right: 5),
                         width: controller.currentPage == index ? 20 : 5,
                         height: 5,

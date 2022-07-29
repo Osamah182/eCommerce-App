@@ -1,14 +1,19 @@
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../controller/auth/resetpassword_controller.dart';
+import '../../../controller/auth/signup_controller.dart';
+import '../../widgets/auth/customtextformauth.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
 
   @override
   build(BuildContext context) {
-    // ResetPasswordControllerImp controller =
-    //     Get.put(ResetPasswordControllerImp());
+    ResetPasswordControllerImp controller =
+        Get.put(ResetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
@@ -32,23 +37,22 @@ class ResetPassword extends StatelessWidget {
             children: [
               // const LogoAuth(),
               const SizedBox(height: 20),
-              const CustomTextTitleAuth(textTitle: "send new password"),
-              const SizedBox(height: 10),
-              const CustomTextBodyAuth(
-                  text:
-                      "Sign up with your email and password or continue with social media"),
+              const CustomTextTitleAuth(textTitle: "Enter Your New Password"),
+              const SizedBox(height: 40),
+              const CustomTextBodyAuth(text: "Enter Your New Password"),
+              const SizedBox(height: 40),
+              CustomTextFormAuth(
+                  myController: controller.password,
+                  hintText1: "Enter Your Password",
+                  label1: "Password",
+                  iconData: Icons.lock_outlined),
+              CustomTextFormAuth(
+                  myController: controller.password,
+                  hintText1: "Confirm Your Password",
+                  label1: "Confirm",
+                  iconData: Icons.lock_outlined),
               const SizedBox(height: 35),
-              // CustomTextFormAuth(
-              //     myController: controller.email,
-              //     hintText1: "Enter Your Email",
-              //     label1: "Email",
-              //     iconData: Icons.email_outlined),
-              // CustomButtonAuth(
-              //     text: "Check",
-              //     onPressed: () {
-              //       controller.goToVerfiyCode();
-              //     }),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
             ],
           )),
     );

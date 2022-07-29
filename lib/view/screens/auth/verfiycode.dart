@@ -1,12 +1,17 @@
+import 'package:e_commerce_cource/controller/auth/verfiycode_controller.dart';
+import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:get/get.dart';
 
 class VerfiyCode extends StatelessWidget {
   const VerfiyCode({Key? key}) : super(key: key);
 
   @override
   build(BuildContext context) {
+    VerfiyCodeControllerImp controller = Get.put(VerfiyCodeControllerImp());
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
@@ -34,14 +39,24 @@ class VerfiyCode extends StatelessWidget {
               const SizedBox(height: 10),
               const CustomTextBodyAuth(
                   text:
-                      "Sign up with your email and password or continue with social media"),
+                      "Please Enter The Digit Code Sent To obabadr@gmail.com"),
               const SizedBox(height: 35),
-              // CustomTextFormAuth(
-              //     myController: controller.email,
-              //     hintText1: "Enter Your Email",
-              //     label1: "Email",
-              //     iconData: Icons.email_outlined),
-              // CustomButtonAuth(text: "Get verificatoin code", onPressed: () {}),
+              OtpTextField(
+                borderRadius: BorderRadius.circular(15),
+                fieldWidth: 50,
+                numberOfFields: 4,
+                borderColor: Colors.orange,
+                //set to true to show as box or false to show as dash
+                showFieldAsBox: true,
+                //runs when a code is typed in
+                onCodeChanged: (String code) {
+                  //handle validation or checks here
+                },
+                //runs when every textfield is filled
+                onSubmit: (String verificationCode) {
+                  controller.goToResetPassword();
+                }, // end onSubmit
+              ),
               SizedBox(height: 30),
             ],
           )),

@@ -18,27 +18,28 @@ class SliderOnBoarding extends GetView<OnBoardingControllerImp> {
         itemBuilder: (context, i) => Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 55),
+                  margin: EdgeInsets.only(top: 35),
                   child: Text(
                     onBoardingList[i].title!,
                     style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 Image.asset(
                   onBoardingList[i].image!,
                   width: 250,
                   height: 250,
                   fit: BoxFit.fill,
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 35),
                 Container(
                   width: double.infinity,
                   alignment: Alignment.center,
                   child: Text(onBoardingList[i].body!,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyText1),
-                )
+                ),
+                const SizedBox(height: 10),
               ],
             ));
   }

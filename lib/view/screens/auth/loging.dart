@@ -78,7 +78,8 @@ class Login extends StatelessWidget {
                 onTap: () {
                   controller.goToSignUp();
                 },
-              )
+              ),
+              const SizedBox(height: 30),
             ],
           )),
     );

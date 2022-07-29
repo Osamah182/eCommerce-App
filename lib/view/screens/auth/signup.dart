@@ -40,13 +40,13 @@ class SignUp extends StatelessWidget {
           child: ListView(
             children: [
               // const LogoAuth(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               const CustomTextTitleAuth(textTitle: "Welcome"),
               const SizedBox(height: 10),
               const CustomTextBodyAuth(
                   text:
                       "Sign up with your email and password or continue with social media"),
-              const SizedBox(height: 35),
+              const SizedBox(height: 25),
               CustomTextFormAuth(
                   myController: controller.username,
                   hintText1: "Enter your Username",
@@ -65,21 +65,24 @@ class SignUp extends StatelessWidget {
                   iconData: Icons.phone_android_outlined),
               CustomTextFormAuth(
                   myController: controller.password,
-                  hintText1: "Enter Your Passord",
+                  hintText1: "Enter Your Password",
                   label1: "Password",
                   iconData: Icons.lock_outlined),
               CustomButtonAuth(text: "Sign in", onPressed: () {}),
-              SizedBox(height: 30),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(width: 7),
-                  CustomTextSignUpOrSignIn(
-                    text1: "Already have accout ?",
-                    text2: "Sign In",
-                    onTap: () {
-                      controller.signIn();
-                    },
+                  Container(
+                    padding: EdgeInsets.only(bottom: 30),
+                    child: CustomTextSignUpOrSignIn(
+                      text1: "Already have accout ?",
+                      text2: "Sign In",
+                      onTap: () {
+                        controller.signIn();
+                      },
+                    ),
                   )
                 ],
               )
