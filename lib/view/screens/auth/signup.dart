@@ -68,11 +68,6 @@ class SignUp extends StatelessWidget {
                   hintText1: "Enter Your Passord",
                   label1: "Password",
                   iconData: Icons.lock_outlined),
-              const Text(
-                "Forget password",
-                textAlign: TextAlign.start,
-                style: TextStyle(color: Colors.grey),
-              ),
               CustomButtonAuth(text: "Sign in", onPressed: () {}),
               SizedBox(height: 30),
               Row(
