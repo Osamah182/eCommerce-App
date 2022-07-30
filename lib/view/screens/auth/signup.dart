@@ -68,7 +68,11 @@ class SignUp extends StatelessWidget {
                   hintText1: "Enter Your Password",
                   label1: "Password",
                   iconData: Icons.lock_outlined),
-              CustomButtonAuth(text: "Sign in", onPressed: () {}),
+              CustomButtonAuth(
+                  text: "Sign up",
+                  onPressed: () {
+                    controller.goToSignUp();
+                  }),
               SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

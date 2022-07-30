@@ -1,11 +1,12 @@
+import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/resetpassword_controller.dart';
-import '../../../controller/auth/signup_controller.dart';
-import '../../widgets/auth/customtextformauth.dart';
+import '../../../../controller/auth/resetpassword_controller.dart';
+import '../../../../controller/auth/signup_controller.dart';
+import '../../../widgets/auth/customtextformauth.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
@@ -53,6 +54,14 @@ class ResetPassword extends StatelessWidget {
                   iconData: Icons.lock_outlined),
               const SizedBox(height: 35),
               const SizedBox(height: 30),
+              Container(
+                width: double.infinity,
+                child: CustomButtonAuth(
+                    text: 'enter',
+                    onPressed: () {
+                      controller.goToSuccessResetPassword();
+                    }),
+              )
             ],
           )),
     );

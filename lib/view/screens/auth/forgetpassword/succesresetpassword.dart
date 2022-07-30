@@ -1,18 +1,19 @@
-import 'package:e_commerce_cource/core/constants/colors.dart';
-import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/signup_controller.dart';
+import '../../../../controller/auth/signup_controller.dart';
+import '../../../../core/constants/colors.dart';
+import '../../../widgets/auth/custombuttonauth.dart';
 
-class SuccessSignUp extends StatelessWidget {
-  const SuccessSignUp({Key? key}) : super(key: key);
+class SuccessResetPassword extends StatelessWidget {
+  const SuccessResetPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     SignupControllerImp controller = Get.put(SignupControllerImp());
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -42,7 +43,7 @@ class SuccessSignUp extends StatelessWidget {
             Spacer(),
             Padding(
                 padding: const EdgeInsets.only(left: 30, top: 60),
-                child: Text('Sing Up has been done successfuly',
+                child: Text('Reset Password has been done successfuly',
                     style: TextStyle(color: Colors.green, fontSize: 25))),
             Spacer(),
             Container(
