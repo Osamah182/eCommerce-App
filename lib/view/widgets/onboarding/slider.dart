@@ -27,8 +27,8 @@ class SliderOnBoarding extends GetView<OnBoardingControllerImp> {
                 const SizedBox(height: 30),
                 Image.asset(
                   onBoardingList[i].image!,
-                  width: 250,
-                  height: 250,
+                  // width: 250,
+                  height: Get.width / 1.3,
                   fit: BoxFit.fill,
                 ),
                 const SizedBox(height: 35),

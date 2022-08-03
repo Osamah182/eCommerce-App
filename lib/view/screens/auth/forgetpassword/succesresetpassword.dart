@@ -1,3 +1,4 @@
+import 'package:e_commerce_cource/controller/auth/successresetpassword_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -12,7 +13,8 @@ class SuccessResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignupControllerImp controller = Get.put(SignupControllerImp());
+    SuccessResetPasswordControllerImp controller =
+        Get.put(SuccessResetPasswordControllerImp());
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -51,7 +53,7 @@ class SuccessResetPassword extends StatelessWidget {
               child: CustomButtonAuth(
                   text: 'Go To Login',
                   onPressed: () {
-                    controller.signIn();
+                    controller.goToPageLogin();
                   }),
             ),
             SizedBox(

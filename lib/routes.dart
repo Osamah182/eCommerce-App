@@ -1,6 +1,7 @@
 import 'package:e_commerce_cource/core/constants/routes.dart';
 import 'package:e_commerce_cource/view/screens/auth/checkemail.dart';
 import 'package:e_commerce_cource/view/screens/auth/forgetpassword.dart';
+import 'package:e_commerce_cource/view/screens/auth/forgetpassword/verifycodeSignUp.dart';
 
 import 'package:e_commerce_cource/view/screens/auth/loging.dart';
 import 'package:e_commerce_cource/view/screens/auth/forgetpassword/resetpassword.dart';
@@ -24,4 +25,5 @@ Map<String, Widget Function(BuildContext)> routes = {
 
   // OnBoarding
   AppRoute.onBoardingPage: (context) => const OnboardingPage(),
+  AppRoute.verfiycodesignup: (context) => const VerfiyCodeSignUp(),
 };

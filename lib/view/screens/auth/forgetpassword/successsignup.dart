@@ -1,3 +1,4 @@
+import 'package:e_commerce_cource/controller/auth/successsignup_controller.dart';
 import 'package:e_commerce_cource/core/constants/colors.dart';
 import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:flutter/material.dart';
@@ -5,14 +6,15 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/signup_controller.dart';
+import '../../../../controller/auth/signup_controller.dart';
 
 class SuccessSignUp extends StatelessWidget {
   const SuccessSignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SignupControllerImp controller = Get.put(SignupControllerImp());
+    SuccessSignUpControllerImp controller =
+        Get.put(SuccessSignUpControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -50,7 +52,7 @@ class SuccessSignUp extends StatelessWidget {
               child: CustomButtonAuth(
                   text: 'Go To Login',
                   onPressed: () {
-                    controller.signIn();
+                    controller.goToPageLogin();
                   }),
             ),
             SizedBox(
