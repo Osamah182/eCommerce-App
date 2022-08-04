@@ -1,5 +1,6 @@
 import 'package:e_commerce_cource/controller/auth/loging_controller.dart';
 import 'package:e_commerce_cource/core/constants/colors.dart';
+import 'package:e_commerce_cource/core/functions/validinput.dart';
 import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtexttitleauth.dart';
@@ -38,49 +39,62 @@ class Login extends StatelessWidget {
       body: Container(
           color: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
-          child: ListView(
-            children: [
-              const LogoAuth(),
-              const SizedBox(height: 20),
-              const CustomTextTitleAuth(textTitle: "Welcome Back"),
-              const SizedBox(height: 10),
-              const CustomTextBodyAuth(
-                  text:
-                      "Sign in with your email and password or continue with social media"),
-              const SizedBox(height: 35),
-              CustomTextFormAuth(
-                myController: controller.email,
-                hintText1: "Enter Your Email",
-                label1: "Email",
-                iconData: Icons.email_outlined,
-              ),
-              // const SizedBox(height: 25),
-              CustomTextFormAuth(
-                  myController: controller.password,
-                  hintText1: "Enter Your Password",
-                  label1: "Password",
-                  iconData: Icons.lock_outlined),
-              InkWell(
-                onTap: () {
-                  controller.goToForgetPassword();
-                },
-                child: const Text(
-                  "Forget password",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(color: Colors.grey),
+          child: Form(
+            key: controller.formstate,
+            child: ListView(
+              children: [
+                const LogoAuth(),
+                const SizedBox(height: 20),
+                const CustomTextTitleAuth(textTitle: "Welcome Back"),
+                const SizedBox(height: 10),
+                const CustomTextBodyAuth(
+                    text:
+                        "Sign in with your email and password or continue with social media"),
+                const SizedBox(height: 35),
+                CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 5, 25, "email");
+                  },
+                  myController: controller.email,
+                  hintText1: "Enter Your Email",
+                  label1: "Email",
+                  iconData: Icons.email_outlined,
                 ),
-              ),
-              CustomButtonAuth(text: "Sign in", onPressed: () {}),
-              const SizedBox(height: 30),
-              CustomTextSignUpOrSignIn(
-                text1: "Don't have an accout ?",
-                text2: "SignUp",
-                onTap: () {
-                  controller.goToSignUp();
-                },
-              ),
-              const SizedBox(height: 30),
-            ],
+                // const SizedBox(height: 25),
+                CustomTextFormAuth(
+                    valid: (val) {
+                      return validInput(val!, 8, 20, "password");
+                    },
+                    myController: controller.password,
+                    hintText1: "Enter Your Password",
+                    label1: "Password",
+                    iconData: Icons.lock_outlined),
+                InkWell(
+                  onTap: () {
+                    controller.goToForgetPassword();
+                  },
+                  child: const Text(
+                    "Forget password",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+                CustomButtonAuth(
+                    text: "Sign in",
+                    onPressed: () {
+                      controller.loging();
+                    }),
+                const SizedBox(height: 30),
+                CustomTextSignUpOrSignIn(
+                  text1: "Don't have an accout ?",
+                  text2: "SignUp",
+                  onTap: () {
+                    controller.goToSignUp();
+                  },
+                ),
+                const SizedBox(height: 30),
+              ],
+            ),
           )),
     );
   }

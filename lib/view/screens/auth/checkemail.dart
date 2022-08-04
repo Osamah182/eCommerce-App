@@ -1,4 +1,5 @@
 import 'package:e_commerce_cource/controller/checkemail_controller.dart';
+import 'package:e_commerce_cource/core/functions/validinput.dart';
 import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextformauth.dart';
@@ -42,6 +43,9 @@ class CheckEmail extends StatelessWidget {
                       "Please Enter Your Email Address To Recive A verification code"),
               const SizedBox(height: 35),
               CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 5, 25, "email");
+                  },
                   myController: controller.email,
                   hintText1: "Enter Your Email",
                   label1: "Email",

@@ -4,24 +4,38 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 abstract class SignupController extends GetxController {
-  signIn();
+  loging();
   goToSignUp();
 }
 
 class SignupControllerImp extends SignupController {
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController phoneNumber;
   late TextEditingController password;
 
   @override
-  signIn() {
-    Get.toNamed(AppRoute.login);
+  loging() {
+    Get.offNamed(AppRoute.login);
   }
 
   @override
   goToSignUp() {
-    Get.offNamed(AppRoute.checkemail);
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      if (formstate == username &&
+          formstate == email &&
+          formstate == phoneNumber &&
+          formstate == password) {
+        print('all field are valid');
+      }
+      Get.offNamed(AppRoute.checkemail);
+    } else {
+      print("not valid");
+    }
+    ;
   }
 
   @override

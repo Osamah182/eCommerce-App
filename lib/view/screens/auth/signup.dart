@@ -1,4 +1,5 @@
 import 'package:e_commerce_cource/core/constants/colors.dart';
+import 'package:e_commerce_cource/core/functions/validinput.dart';
 import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtexttitleauth.dart';
@@ -37,60 +38,75 @@ class SignUp extends StatelessWidget {
       body: Container(
           color: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
-          child: ListView(
-            children: [
-              // const LogoAuth(),
-              const SizedBox(height: 10),
-              const CustomTextTitleAuth(textTitle: "Welcome"),
-              const SizedBox(height: 10),
-              const CustomTextBodyAuth(
-                  text:
-                      "Sign up with your email and password or continue with social media"),
-              const SizedBox(height: 25),
-              CustomTextFormAuth(
-                  myController: controller.username,
-                  hintText1: "Enter your Username",
-                  label1: "Username",
-                  iconData: Icons.person_outline),
-              // const SizedBox(height: 25),
-              CustomTextFormAuth(
-                  myController: controller.email,
-                  hintText1: "Enter Your Email",
-                  label1: "Email",
-                  iconData: Icons.email_outlined),
-              CustomTextFormAuth(
-                  myController: controller.phoneNumber,
-                  hintText1: "Enter Your Phone Number",
-                  label1: "Phone Number",
-                  iconData: Icons.phone_android_outlined),
-              CustomTextFormAuth(
-                  myController: controller.password,
-                  hintText1: "Enter Your Password",
-                  label1: "Password",
-                  iconData: Icons.lock_outlined),
-              CustomButtonAuth(
-                  text: "Sign up",
-                  onPressed: () {
-                    controller.goToSignUp();
-                  }),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(width: 7),
-                  Container(
-                    padding: EdgeInsets.only(bottom: 30),
-                    child: CustomTextSignUpOrSignIn(
-                      text1: "Already have accout ?",
-                      text2: "Sign In",
-                      onTap: () {
-                        controller.signIn();
-                      },
-                    ),
-                  )
-                ],
-              )
-            ],
+          child: Form(
+            key: controller.formstate,
+            child: ListView(
+              children: [
+                // const LogoAuth(),
+                const SizedBox(height: 10),
+                const CustomTextTitleAuth(textTitle: "Welcome"),
+                const SizedBox(height: 10),
+                const CustomTextBodyAuth(
+                    text:
+                        "Sign up with your email and password or continue with social media"),
+                const SizedBox(height: 25),
+                CustomTextFormAuth(
+                    valid: (val) {
+                      return validInput(val!, 5, 20, "username");
+                    },
+                    myController: controller.username,
+                    hintText1: "Enter your Username",
+                    label1: "Username",
+                    iconData: Icons.person_outline),
+                // const SizedBox(height: 25),
+                CustomTextFormAuth(
+                    valid: (val) {
+                      return validInput(val!, 5, 25, "email");
+                    },
+                    myController: controller.email,
+                    hintText1: "Enter Your Email",
+                    label1: "Email",
+                    iconData: Icons.email_outlined),
+                CustomTextFormAuth(
+                    valid: (val) {
+                      return validInput(val!, 10, 10, "phonenumber");
+                    },
+                    myController: controller.phoneNumber,
+                    hintText1: "Enter Your Phone Number",
+                    label1: "Phone Number",
+                    iconData: Icons.phone_android_outlined),
+                CustomTextFormAuth(
+                    valid: (val) {
+                      return validInput(val!, 8, 20, "password");
+                    },
+                    myController: controller.password,
+                    hintText1: "Enter Your Password",
+                    label1: "Password",
+                    iconData: Icons.lock_outlined),
+                CustomButtonAuth(
+                    text: "Sign up",
+                    onPressed: () {
+                      controller.goToSignUp();
+                    }),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(width: 7),
+                    Container(
+                      padding: EdgeInsets.only(bottom: 30),
+                      child: CustomTextSignUpOrSignIn(
+                        text1: "Already have accout ?",
+                        text2: "Sign In",
+                        onTap: () {
+                          controller.loging();
+                        },
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           )),
     );
   }

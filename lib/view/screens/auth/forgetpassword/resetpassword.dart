@@ -1,3 +1,4 @@
+import 'package:e_commerce_cource/core/functions/validinput.dart';
 import 'package:e_commerce_cource/view/widgets/auth/custombuttonauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtextbodyauth.dart';
 import 'package:e_commerce_cource/view/widgets/auth/customtexttitleauth.dart';
@@ -43,11 +44,17 @@ class ResetPassword extends StatelessWidget {
               const CustomTextBodyAuth(text: "Enter Your New Password"),
               const SizedBox(height: 40),
               CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 8, 20, "password");
+                  },
                   myController: controller.password,
                   hintText1: "Enter Your Password",
                   label1: "Password",
                   iconData: Icons.lock_outlined),
               CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 8, 20, "password");
+                  },
                   myController: controller.password,
                   hintText1: "Confirm Your Password",
                   label1: "Confirm",

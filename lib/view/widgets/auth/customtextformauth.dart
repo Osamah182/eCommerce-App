@@ -6,13 +6,15 @@ class CustomTextFormAuth extends StatelessWidget {
   final String label1;
   final IconData iconData;
   final TextEditingController? myController;
+  final String? Function(String?) valid;
 
   const CustomTextFormAuth(
       {Key? key,
       required this.hintText1,
       required this.label1,
       required this.iconData,
-      required this.myController})
+      required this.myController,
+      required this.valid})
       : super(key: key);
 
   @override
@@ -20,6 +22,7 @@ class CustomTextFormAuth extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 35),
       child: TextFormField(
+        validator: valid,
         controller: myController,
         decoration: InputDecoration(
             hintText: hintText1,
