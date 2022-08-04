@@ -31,7 +31,7 @@ class SliderOnBoarding extends GetView<OnBoardingControllerImp> {
                   height: Get.width / 1.3,
                   fit: BoxFit.fill,
                 ),
-                const SizedBox(height: 35),
+                const SizedBox(height: 8),
                 Container(
                   width: double.infinity,
                   alignment: Alignment.center,
@@ -39,7 +39,7 @@ class SliderOnBoarding extends GetView<OnBoardingControllerImp> {
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
               ],
             ));
   }

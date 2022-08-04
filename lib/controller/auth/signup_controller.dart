@@ -31,7 +31,8 @@ class SignupControllerImp extends SignupController {
           formstate == password) {
         print('all field are valid');
       }
-      Get.offNamed(AppRoute.checkemail);
+      Get.offAllNamed(AppRoute.verfiycodesignup);
+      Get.delete<SignupControllerImp>();
     } else {
       print("not valid");
     }

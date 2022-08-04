@@ -55,7 +55,7 @@ class ResetPassword extends StatelessWidget {
                   valid: (val) {
                     return validInput(val!, 8, 20, "password");
                   },
-                  myController: controller.password,
+                  myController: controller.repassword,
                   hintText1: "Confirm Your Password",
                   label1: "Confirm",
                   iconData: Icons.lock_outlined),

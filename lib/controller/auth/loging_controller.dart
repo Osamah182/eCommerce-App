@@ -17,7 +17,9 @@ class LoginControllerImp extends LoginController {
   loging() {
     var formdata = formstate.currentState;
     if (formdata!.validate()) {
-      print("valid");
+      if (formstate == email && formstate == password) {}
+      Get.offNamed(AppRoute
+          .successsignup); // we will create a new page for moving to HomePage
     } else {
       print("not valid");
     }
@@ -25,7 +27,7 @@ class LoginControllerImp extends LoginController {
 
   @override
   goToSignUp() {
-    Get.offNamed(AppRoute.signUp);
+    Get.toNamed(AppRoute.signUp);
   }
 
   @override

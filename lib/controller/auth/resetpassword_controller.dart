@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce_cource/core/constants/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -8,11 +10,24 @@ abstract class ResetPasswordController extends GetxController {
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
   late TextEditingController password;
   late TextEditingController repassword;
 
   @override
-  checkEmail() {}
+  checkEmail() {
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      if (formstate == password && formstate == repassword) {
+        // I need to fix here to make password and repassword should be compatiable
+        if (password == repassword) {
+          goToSuccessResetPassword();
+        }
+      } else {
+        print('not valid');
+      }
+    }
+  }
 
   @override
   goToSuccessResetPassword() {

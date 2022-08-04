@@ -7,7 +7,6 @@ class AppRoute {
   static const String resetpassword = "/resetpassword";
   static const String successresetpassword = "/successresetpassword";
   static const String successsignup = "/successSignup";
-  static const String checkemail = "/checkemail";
   static const String verfiycodesignup = "/verifycodesignup";
 
   //OnBoarding Routes
