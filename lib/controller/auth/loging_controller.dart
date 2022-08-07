@@ -13,6 +13,13 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
 
+  bool isshowpassword = true;
+
+  showpassword() {
+    isshowpassword = isshowpassword == true ? false : true;
+    update();
+  }
+
   @override
   loging() {
     var formdata = formstate.currentState;
