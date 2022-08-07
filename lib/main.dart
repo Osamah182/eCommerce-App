@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       // home: Test(),
       home: const Language(),
       initialBinding: MyBinding(),
-      routes: routes,
+      getPages: routes,
     );
   }
 }
