@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
       translations: MyTranslation(),
-      title: 'Flutter Demo',
+      title: 'flutter app',
       locale: controller.language,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
