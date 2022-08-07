@@ -52,6 +52,7 @@ class Login extends StatelessWidget {
                         "Sign in with your email and password or continue with social media"),
                 const SizedBox(height: 35),
                 CustomTextFormAuth(
+                  isNumber: false,
                   valid: (val) {
                     return validInput(val!, 5, 25, "email");
                   },
@@ -62,6 +63,7 @@ class Login extends StatelessWidget {
                 ),
                 // const SizedBox(height: 25),
                 CustomTextFormAuth(
+                    isNumber: false,
                     valid: (val) {
                       return validInput(val!, 8, 20, "password");
                     },

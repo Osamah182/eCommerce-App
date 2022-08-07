@@ -32,7 +32,6 @@ class SignupControllerImp extends SignupController {
         print('all field are valid');
       }
       Get.offAllNamed(AppRoute.verfiycodesignup);
-      Get.delete<SignupControllerImp>();
     } else {
       print("not valid");
     }

@@ -45,6 +45,7 @@ class ForgetPassword extends StatelessWidget {
                       "Please Enter Your Email Address To Recive A verification code"),
               const SizedBox(height: 35),
               CustomTextFormAuth(
+                  isNumber: false,
                   valid: (val) {
                     return validInput(val!, 5, 25, "email");
                   },

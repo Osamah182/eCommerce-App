@@ -44,6 +44,7 @@ class ResetPassword extends StatelessWidget {
               const CustomTextBodyAuth(text: "Enter Your New Password"),
               const SizedBox(height: 40),
               CustomTextFormAuth(
+                  isNumber: false,
                   valid: (val) {
                     return validInput(val!, 8, 20, "password");
                   },
@@ -52,6 +53,7 @@ class ResetPassword extends StatelessWidget {
                   label1: "Password",
                   iconData: Icons.lock_outlined),
               CustomTextFormAuth(
+                  isNumber: false,
                   valid: (val) {
                     return validInput(val!, 8, 20, "password");
                   },

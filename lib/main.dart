@@ -1,11 +1,10 @@
+import 'package:e_commerce_cource/binding.dart';
 import 'package:e_commerce_cource/core/constants/colors.dart';
 import 'package:e_commerce_cource/core/localization/transilation.dart';
 import 'package:e_commerce_cource/core/localization/changelocal.dart';
 import 'package:e_commerce_cource/core/services/services.dart';
 import 'package:e_commerce_cource/routes.dart';
-import 'package:e_commerce_cource/test.dart';
 import 'package:e_commerce_cource/view/screens/language.dart';
-import 'package:e_commerce_cource/view/screens/onboardingPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,6 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: Test(),
       home: const Language(),
+      initialBinding: MyBinding(),
       routes: routes,
     );
   }
